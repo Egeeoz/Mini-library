@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const books = [];
+// const body = document.querySelector("body");
 function getApiData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -23,5 +24,17 @@ function getApiData() {
     });
 }
 getApiData().then(() => {
-    console.log(books);
+    printOutBooks();
 });
+function printOutBooks() {
+    console.log(books);
+    books.forEach((book) => {
+        var _a;
+        const section = document.createElement("section");
+        section.style.backgroundColor = book.color;
+        const p = document.createElement("p");
+        p.textContent = book.title;
+        section === null || section === void 0 ? void 0 : section.appendChild(p);
+        (_a = document.body) === null || _a === void 0 ? void 0 : _a.appendChild(section);
+    });
+}

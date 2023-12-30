@@ -11,6 +11,7 @@ interface Book {
 }
 
 const books: Book[] = [];
+// const body = document.querySelector("body");
 
 async function getApiData(): Promise<void> {
   try {
@@ -28,5 +29,17 @@ async function getApiData(): Promise<void> {
   }
 }
 getApiData().then(() => {
-  console.log(books);
+  printOutBooks();
 });
+
+function printOutBooks() {
+  console.log(books);
+  books.forEach((book) => {
+    const section = document.createElement("section");
+    section.style.backgroundColor = book.color;
+    const p = document.createElement("p");
+    p.textContent = book.title;
+    section?.appendChild(p);
+    document.body?.appendChild(section);
+  });
+}
