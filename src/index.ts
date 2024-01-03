@@ -40,6 +40,9 @@ function printOutBooks() {
   books.forEach((book) => {
     const section = document.createElement("section");
     section.style.backgroundColor = book.color;
+
+    section.className = "book__section";
+
     const p = document.createElement("p");
     p.textContent = book.title;
     section?.appendChild(p);

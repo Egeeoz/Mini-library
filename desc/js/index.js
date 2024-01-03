@@ -35,6 +35,7 @@ function printOutBooks() {
         var _a;
         const section = document.createElement("section");
         section.style.backgroundColor = book.color;
+        section.className = "book__section";
         const p = document.createElement("p");
         p.textContent = book.title;
         section === null || section === void 0 ? void 0 : section.appendChild(p);

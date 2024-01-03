@@ -1,5 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+/* IMPORT FONT */
+
 body {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f0e6;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.book__section {
+  display: flex;
+  align-items: center;
+  width: 11vw;
+  aspect-ratio: 1/1;
+  border: 0.5px solid black;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.book__section p {
+  width: 10vw;
+  padding: 1rem;
+  text-align: center;
 }
 
 .popup__overlay {
