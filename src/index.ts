@@ -11,7 +11,10 @@ interface Book {
 }
 
 const books: Book[] = [];
-// const body = document.querySelector("body");
+const popup = document.getElementById("popup") as HTMLElement;
+const popupOverlay = document.getElementById("popupOverlay") as HTMLElement;
+const popupBody = document.getElementById("popupBody") as HTMLElement;
+const closeBtn = document.querySelector(".popup__close") as HTMLElement;
 
 async function getApiData(): Promise<void> {
   try {
@@ -41,5 +44,28 @@ function printOutBooks() {
     p.textContent = book.title;
     section?.appendChild(p);
     document.body?.appendChild(section);
+
+    section.addEventListener("click", () => openPopup(book));
   });
+}
+
+function openPopup(book: Book) {
+  popupBody.innerHTML = `<h3>${book.title}</h3>
+  <p>Author: ${book.author}</p>
+  <p>Publisher: ${book.publisher}</p>
+  <p>Year: ${book.year}</p>
+  <p>Pages: ${book.pages}</p>
+  <p>Plot: ${book.plot}</p>
+  <p>Audience: ${book.audience}</p>`;
+
+  popup.style.display = "block";
+  popupOverlay.style.display = "block";
+}
+
+closeBtn.addEventListener("click", closePopup);
+popupOverlay.addEventListener("click", closePopup);
+
+function closePopup() {
+  popup.style.display = "none";
+  popupOverlay.style.display = "none";
 }
