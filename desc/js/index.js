@@ -7,17 +7,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+// Books array, books from api gets pushed in here
 const books = [];
+// Modal elements
 const popup = document.getElementById("popup");
 const popupOverlay = document.getElementById("popupOverlay");
 const popupBody = document.getElementById("popupBody");
 const closeBtn = document.querySelector(".popup__close");
+// Async function that fetches book data
 function getApiData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield fetch("https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books", {
                 method: "GET",
             });
+            // Storing fetched data and pushing it to books array
             let data = yield response.json();
             books.push(...data);
         }
@@ -29,8 +33,8 @@ function getApiData() {
 getApiData().then(() => {
     printOutBooks();
 });
+// Function for printing out the fetched books onto the page
 function printOutBooks() {
-    console.log(books);
     books.forEach((book) => {
         var _a;
         const section = document.createElement("section");
@@ -43,6 +47,7 @@ function printOutBooks() {
         section.addEventListener("click", () => openPopup(book));
     });
 }
+// Modal popup with information about the book fetched from api
 function openPopup(book) {
     popupBody.innerHTML = `<h3>${book.title}</h3>
   <p>Author: ${book.author}</p>
@@ -56,6 +61,7 @@ function openPopup(book) {
 }
 closeBtn.addEventListener("click", closePopup);
 popupOverlay.addEventListener("click", closePopup);
+// Function to close popup modal
 function closePopup() {
     popup.style.display = "none";
     popupOverlay.style.display = "none";

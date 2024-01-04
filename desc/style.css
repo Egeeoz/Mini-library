@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 /* IMPORT FONT */
 
+/* Main content styling */
 body {
   display: flex;
   justify-content: space-evenly;
@@ -13,6 +14,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* Books styling */
 .book__section {
   display: flex;
   align-items: center;
@@ -23,18 +25,19 @@ body {
   cursor: pointer;
 }
 
+/* Books names styling */
 .book__section p {
   width: 10vw;
   padding: 1rem;
   text-align: center;
 }
 
+/* The rest is modal styling*/
 .popup__overlay {
   position: fixed;
   display: none;
   width: 100%;
   aspect-ratio: 1/1;
-  /* height: 100%; */
   top: 0;
   left: 0;
   right: 0;
