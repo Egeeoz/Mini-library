@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "outDir": "./desc/js",
+    "outDir": "./docs/js",
     "lib": ["ES2016", "dom"]
   },
   "include": ["./src"]
